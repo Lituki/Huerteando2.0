@@ -190,7 +190,7 @@ public class DetalleObservacionActivity extends AppCompatActivity {
         String token = sessionManager.getToken();
         ApiService apiService = ApiClient.getClient(token).create(ApiService.class);
 
-        // Si ya tiene like, quitarlo; si no,给它
+        // Si ya tiene like → quitarlo; si no → dárselo
         Call<?> call;
         if (observacionActual.isLikePropio()) {
             call = apiService.quitarLike(idObservacion);

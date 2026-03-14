@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements ObservacionAdapte
     private TextView tvVacio;                     // Mensaje cuando no hay datos
     private TabLayout tabLayout;                  // Filtros (Todas, Plantas, Rincón, Denuncias)
     private FloatingActionButton fabCrear;       // Botón flotante para crear
-
+    private boolean primeraCarga = true;        // Controla si es el primer inicio
     // Adaptador y datos
     private ObservacionAdapter adapter;
     private List<Observacion> listaObservaciones = new ArrayList<>();
@@ -126,7 +126,13 @@ public class MainActivity extends AppCompatActivity implements ObservacionAdapte
     @Override
     protected void onResume() {
         super.onResume();
-        // Recargar cuando volvamos de crear una observación
+        // Si es la primera vez (ya lo cargamos en onCreate), nos lo saltamos.
+        // Las veces siguientes (volver de DetalleObservacion, etc.) sí recargamos.
+        if (primeraCarga) {
+            primeraCarga = false;
+            return;
+        }
+
         cargarObservaciones();
     }
 

@@ -20,6 +20,12 @@ import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import com.huerteando.app.clases.ActualizarPerfilRequest;
+import com.huerteando.app.clases.ComentarioRequest;
+import com.huerteando.app.clases.ImagenResponse;
+import com.huerteando.app.clases.LikeResponse;
+import com.huerteando.app.clases.ObservacionRequest;
+import com.huerteando.app.clases.RegistroRequest;
 
 public interface ApiService {
 
